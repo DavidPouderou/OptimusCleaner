@@ -1,0 +1,64 @@
+OPTIMUS CLEANER — LICENCE D'UTILISATION
+
+© 2026 David Pouderou. Tous droits réservés.
+
+
+1. PROPRIÉTÉ
+
+Optimus Cleaner (le « Logiciel »), c'est-à-dire son code source, ses exécutables, son nom,
+son icône, ses textes et sa documentation, est l'œuvre de David Pouderou (l'« Auteur ») et
+reste sa propriété exclusive. Il est protégé par le Code de la propriété intellectuelle
+français (articles L.111-1 et suivants, L.122-6 et suivants) et par les conventions
+internationales relatives au droit d'auteur. Aucune disposition de la présente licence
+n'emporte cession de droits.
+
+
+2. CE QUI EST AUTORISÉ
+
+L'Auteur utilise le Logiciel sur tout poste dans le cadre de ses interventions. Toute autre
+personne ne dispose d'aucun droit d'usage sans autorisation écrite de l'Auteur ; une telle
+autorisation, lorsqu'elle est accordée, porte uniquement sur l'exécution de l'exécutable
+officiel, tel que distribué et signé par l'Auteur.
+
+
+3. CE QUI EST INTERDIT SANS L'ACCORD ÉCRIT DE L'AUTEUR
+
+- copier, redistribuer, publier, louer, prêter ou vendre le Logiciel, en tout ou partie,
+  gratuitement ou contre paiement ;
+- l'intégrer dans un autre produit ou dans une offre de service ;
+- le modifier, le traduire, l'adapter ou en créer une œuvre dérivée ;
+- le décompiler, le désassembler ou en faire l'ingénierie inverse, hors les cas limitativement
+  prévus par la loi (article L.122-6-1 du Code de la propriété intellectuelle) ;
+- retirer, masquer ou altérer les mentions de propriété, la signature numérique ou
+  l'horodatage.
+
+
+4. OUTILS TIERS
+
+AdwCleaner (Malwarebytes) et ZHPCleaner (Nicolas Coolman) ne sont pas inclus dans le Logiciel.
+Ils sont téléchargés depuis les sites de leurs éditeurs et restent soumis à leurs licences
+respectives.
+
+
+5. ABSENCE DE GARANTIE
+
+Le Logiciel est fourni « en l'état ». L'Auteur ne garantit ni son adéquation à un besoin
+particulier ni l'absence d'erreurs, et ne saurait être tenu responsable des dommages résultant
+de son utilisation, dans les limites permises par la loi.
+
+
+6. PREUVE D'AUTHENTICITÉ
+
+Les exécutables officiels sont signés numériquement (Authenticode) avec le certificat de
+l'Auteur (CN=David Pouderou), dont la partie publique est publiée avec le code
+(assets/certificat-signature.cer), et horodatés par une autorité indépendante. Un exécutable
+non signé, signé par un autre certificat ou dont la signature est invalide n'est pas une
+version officielle.
+
+
+7. DROIT APPLICABLE
+
+La présente licence est soumise au droit français.
+
+
+Contact : David Pouderou — https://github.com/DavidPouderou
