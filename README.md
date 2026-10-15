@@ -1,8 +1,9 @@
 # Optimus Cleaner
 
-Outil de maintenance pour Windows 10 et 11 : désinfection, nettoyage, optimisation des disques,
-mise à jour des applications, réparation du système et fiche technique du matériel. Un seul
-fichier `.exe`, sans installation.
+Un seul exécutable pour remettre un PC Windows d'aplomb : désinfection, nettoyage, optimisation
+des disques, mise à jour des applications, réparation du système et fiche technique du matériel.
+Chaque opération part d'un clic, se déroule sous vos yeux et se termine par un rapport. Windows 10
+et 11. Un seul fichier `.exe`, sans installation.
 
 ## Téléchargement
 

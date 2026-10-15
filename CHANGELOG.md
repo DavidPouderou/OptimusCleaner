@@ -56,7 +56,7 @@
 
 ## 1.6.1 — 10/10/2026 — nettoyage : jamais de déconnexion, jamais d'installation cassée
 
-Question de terrain : « le nettoyage ne doit effacer ni les sessions des clients ni rien d'important ».
+Question de terrain : « le nettoyage ne doit effacer ni les sessions ouvertes ni rien d'important ».
 Vérification dans le code puis sur les sources Microsoft et éditeurs : aucune session (navigateurs,
 compte Microsoft, Office, Teams, OneDrive, Windows Hello) ne vit dans les dossiers nettoyés. Trois
 risques rares restaient ; ils sont fermés.
@@ -67,7 +67,7 @@ risques rares restaient ; ils sont fermés.
   n'est plus perdu le lendemain. `--temp-age` reste disponible.
 - **Profils de connexion épargnés dans Temp** : les dossiers WebView2/Chromium d'un logiciel métier
   (`EBWebView`, `User Data`, `…UDF`, ou contenant `Cookies`, `Local State`, `Login Data`…) ne sont
-  jamais vidés — le client y resterait connecté. Les dossiers d'exécution d'une application ouverte
+  jamais vidés — l'utilisateur y resterait connecté. Les dossiers d'exécution d'une application ouverte
   (`.net`, `_MEI…`) non plus.
 - **Dossiers Temp conservés quand un redémarrage est en attente**, comme le cache Windows Update :
   un installeur y laisse souvent ce dont il a besoin pour finir après le redémarrage, et l'âge des
@@ -175,7 +175,7 @@ réglages étaient plus agressifs que nécessaire pour un nettoyage qui doit res
   que la réparation Windows Update). Le vider pendant une installation faisait échouer la mise à
   jour, qui se retéléchargeait.
 - **Caches de miniatures et d'icônes de l'Explorateur : plus touchés.** C'était le seul effet
-  visible pour le client (vignettes recalculées pendant quelques secondes) pour quelques dizaines
+  visible pour l'utilisateur (vignettes recalculées pendant quelques secondes) pour quelques dizaines
   de Mo. Le dossier `Windows\Explorer` sort de la liste blanche.
 - Le journal indique les deux âges appliqués (temporaires / diagnostic).
 - Toujours rien côté navigateurs : ni cache, ni cookies, ni sessions (règle inchangée, couverte
@@ -231,7 +231,7 @@ Deux retours de terrain.
 
 ## 1.3.0 — 14/09/2026 — « État des lieux » devient « Fiche technique du PC », et s'affiche vraiment
 
-Retour terrain sur un Windows 10 client : le bouton n'affichait rien.
+Retour terrain sur un Windows 10 en intervention : le bouton n'affichait rien.
 
 ### Ce qui se passait
 
@@ -266,13 +266,13 @@ bouton restait grisé tant que la collecte (jusqu'à 90 s sur un poste lent) n'�
 - **Script de collecte transmis sur l'entrée standard de PowerShell** quand il dépasse la ligne
   de commande : enrichi, il atteignait 33 000 caractères encodés, au-delà des 32 767 que Windows
   accepte, et `CreateProcess` refusait de démarrer (« Nom de fichier ou extension trop long »).
-  Aucun fichier temporaire chez le client, et la stratégie d'exécution ne s'applique pas.
+  Aucun fichier temporaire sur le poste, et la stratégie d'exécution ne s'applique pas.
 - Suite de tests : 280 tests.
 
 
 ## 1.2.0 — 14/09/2026 — retours du terrain : désinfection fiable, journaux sur la clé
 
-Premier test en conditions réelles chez un client : ZHPCleaner « se fermait tout seul » et
+Premier test en conditions réelles, en intervention : ZHPCleaner « se fermait tout seul » et
 Optimus Cleaner disparaissait pendant AdwCleaner. Les deux ont la même cause, et ce n'est pas
 un plantage.
 
@@ -283,7 +283,7 @@ un plantage.
 | L'application se ferme pendant AdwCleaner | **Au moment du nettoyage, AdwCleaner ferme tous les programmes ouverts** (comportement documenté par Malwarebytes), Optimus Cleaner compris. Aucun journal de plantage : ce n'en est pas un. |
 | ZHPCleaner se ferme avant la fin | Deux mécanismes. AdwCleaner ferme aussi ZHPCleaner s'il tourne en même temps. Et lancé depuis le cache, ZHPCleaner se recopie dans `%APPDATA%\ZHP`, affiche « Mise à jour » et repart de là : l'application prenait la fin du premier processus pour la fin de l'outil, et le bouton relançait la mauvaise copie. |
 | Un outil pouvait être remplacé pendant qu'il tournait | Le téléchargement de fond renommait l'exécutable en cours d'exécution pour installer la nouvelle version, alors que le bouton « Ouvrir » était déjà actif. |
-| Rien à relire après coup | Journaux, rapports et plantages restaient dans `C:\ProgramData` du poste client ; la clé USB repartait vide. |
+| Rien à relire après coup | Journaux, rapports et plantages restaient dans `C:\ProgramData` du poste ; la clé USB repartait vide. |
 
 ### Ce qui change
 
@@ -292,7 +292,7 @@ un plantage.
 - **Relance automatique** : au lancement d'un outil, un script Windows PowerShell invisible attend
   sa fin ; si Optimus Cleaner a été fermé entre-temps, il le rouvre au premier plan avec le rapport
   de l'outil. Si l'application est toujours là, le script se termine sans rien faire. Un
-  avertissement le dit avant de lancer AdwCleaner (enregistrer le travail du client).
+  avertissement le dit avant de lancer AdwCleaner (enregistrer le travail en cours).
 - **Rapport de l'outil** lu à sa fermeture *et* au démarrage de l'application (moins de 12 h) :
   résumé sur la carte (« 14:32 · Nettoyage : 3 éléments supprimés ») et bouton **Rapport** qui
   ouvre le fichier. Lecture par l'en-tête des journaux AdwCleaner (`# Mode`, `# Detected`,
@@ -430,7 +430,7 @@ Une seule application, un seul exécutable (~7,7 Mo, Native AOT), quatre actions
 ### Mise à jour et optimisation (automatique)
 - winget : `--source winget` (msstore exclu : compte Microsoft requis, échecs silencieux),
   `--no-progress` avec repli pour les versions anciennes, `--include-unknown` retiré (il
-  réinstallait en boucle), épinglages du client respectés et listés.
+  réinstallait en boucle), épinglages de l'utilisateur respectés et listés.
 - Nettoyage étendu : tous les profils, WER, vidages de plantage, `MEMORY.DMP`, journaux CBS/DISM,
   cache d'optimisation de la distribution (API officielle), caches de miniatures (par motif),
   cache DNS. Services Windows Update arrêtés puis relancés le temps de vider leur cache.
